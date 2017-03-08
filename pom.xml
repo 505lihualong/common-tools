@@ -6,6 +6,7 @@
   <properties>
 		<poi.version>3.13</poi.version>
 		<jedis.version>2.8.1</jedis.version>
+		<log4j-version>2.4.1</log4j-version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -17,6 +18,22 @@
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 			<version>${jedis.version}</version>
+		</dependency>
+		<!-- log4j -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>${log4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j-version}</version>
 		</dependency>
 	</dependencies>
 </project>
