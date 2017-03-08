@@ -1,5 +1,5 @@
-package com.dragon.common.util.time;
 
+package com.dragon.common.util.time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
@@ -53,6 +53,9 @@ public class DateUtil {
 		Date date_time = new Date();
 		return FormatDate(date_time, "yyyy-MM-dd HH:mm:ss");
 	}
+	
+	
+	
 
 	public static String getCurrDate() {
 		Date date_time = new Date();
@@ -652,9 +655,81 @@ public class DateUtil {
 		}
 	}
 	
-	public static void main(String[] args) {
-		//System.out.println(formatDateString("2011年12月", "yyyy年MM月", "yyyyMM"));
-		Date date=getCurrDateTime();
-		System.out.println(dateToString(date, "MMM yyyy",Locale.ENGLISH));
-	}
+	 /**
+     * 获得指定日期的前一天
+     * 
+     * @param specifiedDay
+     * @return
+     * @throws Exception
+     */
+    public static String getSpecifiedDayBefore(String specifiedDay) {//可以用new Date().toLocalString()传递参数
+        Calendar c = Calendar.getInstance();
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("yy-MM-dd").parse(specifiedDay);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        c.setTime(date);
+        int day = c.get(Calendar.DATE);
+        c.set(Calendar.DATE, day - 1);
+
+        String dayBefore = new SimpleDateFormat("yyyy-MM-dd").format(c
+                .getTime());
+        return dayBefore;
+    }
+    
+    /**
+     * 获得指定日期的前一天
+     * 
+     * @param specifiedDay
+     * @return
+     * @throws Exception
+     */
+    public static Date getSpecifiedDayBefore(Date specifiedDay) {//可以用new Date().toLocalString()传递参数
+        Calendar c = Calendar.getInstance();
+        c.setTime(specifiedDay);
+        int day = c.get(Calendar.DATE);
+        c.set(Calendar.DATE, day - 1);
+        return c.getTime();
+    }
+
+    /**
+     * 获得指定日期的后一天
+     * 
+     * @param specifiedDay
+     * @return
+     */
+    public static String getSpecifiedDayAfter(String specifiedDay) {
+        Calendar c = Calendar.getInstance();
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("yy-MM-dd").parse(specifiedDay);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        c.setTime(date);
+        int day = c.get(Calendar.DATE);
+        c.set(Calendar.DATE, day + 1);
+
+        String dayAfter = new SimpleDateFormat("yyyy-MM-dd")
+                .format(c.getTime());
+        return dayAfter;
+    }
+    
+    /**
+     * 获得指定日期的后一天
+     * 
+     * @param specifiedDay
+     * @return
+     */
+    public static Date getSpecifiedDayAfter(Date specifiedDay) {
+        Calendar c = Calendar.getInstance();
+      
+        c.setTime(specifiedDay);
+        int day = c.get(Calendar.DATE);
+        c.set(Calendar.DATE, day + 1);
+        return c.getTime();
+    }
+	
 }
