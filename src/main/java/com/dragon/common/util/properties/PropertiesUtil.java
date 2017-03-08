@@ -16,7 +16,7 @@ import java.util.Properties;
 
 /**
  * 
- * @author wang
+ * @author Dragon
  */
 public class PropertiesUtil {
 

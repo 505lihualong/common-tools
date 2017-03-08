@@ -2,8 +2,6 @@ package com.dragon.common.util.properties;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -144,12 +142,9 @@ public class PropertiesAutoUpdate {
 	}
 	public static void main(String[] args) throws Exception {
 		
-		System.out.println(PropertiesAutoUpdate.getValue("shop","app_id"));
-		
-		System.out.println(PropertiesAutoUpdate.getValue("base","updateType"));
-		
-		Properties properties =PropertiesAutoUpdate.getProperties("base");
-		System.out.println(properties.get("updateType"));
+		System.out.println(PropertiesAutoUpdate.getValue("weixin","weixin.acces.token.url"));
+		Properties properties =PropertiesAutoUpdate.getProperties("weixin");
+		System.out.println(properties.get("weixin.acces.token.url"));
 	}
 
 }
